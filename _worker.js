@@ -16,7 +16,6 @@ const page = `
             margin: auto;
             padding: 1em;
             display: table;
-            user-select: none;
             box-sizing: border-box;
             font: lighter 20px "微软雅黑";
         }
@@ -55,9 +54,8 @@ const page = `
 <main>
     <h1>ChatGPT-Proxy</h1>
     <p>基于 CloudFlare 的 ChatGPT 代理服务。</p>
-    <p>ChatGPT proxy service based on CloudFlare.</p>
-    </br>
-    <p>将 https://api.openai.com 替换成 https://chatgptproxyapi-cf1.pages.dev 即可</p>
+	<p>ChatGPT proxy service based on CloudFlare.</p>
+    <p>将 https://api.openai.com 替换成 <strong>https://chatgptproxyapi-cf1.pages.dev</strong> 即可体验。</p>
 </main>
 </body>
 </html>
