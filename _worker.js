@@ -24,6 +24,7 @@ const page = `
     color: #333;
     margin: 0;
     padding: 0;
+    user-select: none;
     font: lighter 20px "微软雅黑";
   }
   
@@ -137,7 +138,7 @@ const page = `
     fetch('https://ipkk.herokuapp.com')
       .then(response => response.json())
       .then(res => {
-        var googleipinfo = "访问 Google 的 IP 是:" + res.ip + " " + res.addr + res.info;
+        var googleipinfo = "访问 Google 的 IP 是: " + res.ip + " " + res.addr + res.info;
         document.getElementById('googleipinfo').textContent = googleipinfo;
       })
       .catch(error => console.error(error));
