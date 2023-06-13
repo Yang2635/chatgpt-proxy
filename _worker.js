@@ -24,7 +24,7 @@ const page = `
     color: #333;
     margin: 0;
     padding: 0;
-    user-select: none;
+	user-select: none;
     font: lighter 20px "微软雅黑";
   }
   
@@ -97,8 +97,8 @@ const page = `
     background-color: #ddd;
   }
 </style>
-</head>
 
+</head> 
 <body> 
   <div style="display: flex; flex-direction: column; height: 100%;">
     <main style="flex-grow: 1;">
@@ -106,7 +106,7 @@ const page = `
       <p>基于 CloudFlare Pages 部署的 ChatGPT API 代理服务。</p> 
       <p>ChatGPT API Proxy service deployed on CloudFlare Pages.</p> 
       <div id="app"> 
-        <p>将域名 https://api.openai.com 替换成 <strong><a onclick="copyToClipboard('https://openai.api.isisy.com')" @click="showMessage">https://openai.api.isisy.com</a></strong> 即可体验。</p> 
+        <p>将域名 https://api.openai.com 替换成 <strong><a @click="copyToClipboard('https://openai.api.isisy.com')">https://openai.api.isisy.com</a></strong> 即可体验。</p> 
       </div> 
     </main> 
     <footer> 
@@ -124,13 +124,25 @@ const page = `
             message: '文本复制成功！',
             type: 'success'
           });
-        }
+        },
+	copyToClipboard(text) {
+	  const input = document.createElement('textarea');
+	  input.style.position = 'fixed';
+	  input.style.opacity = 0;
+	  input.value = text;
+	  document.body.appendChild(input);
+	  input.select();
+	  document.execCommand('Copy');
+	  document.body.removeChild(input);
+	  this.showMessage();
+	}
       }
     });
-    fetch("https://forge.speedtest.cn/api/location/info")
+    
+    fetch("https://ip.isisy.com/info")
       .then(response => response.json())
       .then(res => {
-        var ipinfo = "你的 IP 地址是: " + res.ip + " " + res.province + res.city + res.distinct + " " + res.net_str;
+        var ipinfo = "您的 IP 地址是: " + res.ip + " " + res.region + " " + res.city + " " + res.detail;
         document.getElementById('ipinfo').textContent = ipinfo;
       })
       .catch(error => console.error(error));
@@ -138,22 +150,12 @@ const page = `
     fetch('https://ipkk.herokuapp.com')
       .then(response => response.json())
       .then(res => {
-        var googleipinfo = "访问 Google 的 IP 是: " + res.ip + " " + res.addr + res.info;
+        var googleipinfo = "访问 Google 的 IP 是:" + res.ip + " " + res.addr + res.info;
         document.getElementById('googleipinfo').textContent = googleipinfo;
       })
       .catch(error => console.error(error));
-	  
-    function copyToClipboard(text) {
-      const input = document.createElement('textarea');
-      input.style.position = 'fixed';
-      input.style.opacity = 0;
-      input.value = text;
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand('Copy');
-      document.body.removeChild(input);
-    }
-  </script>   
+      
+  </script>
 </body>
 </html>
 
