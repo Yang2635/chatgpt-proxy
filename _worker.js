@@ -150,7 +150,7 @@ const page = `
     fetch('https://ipkk.herokuapp.com')
       .then(response => response.json())
       .then(res => {
-        var googleipinfo = "访问 Google 的 IP 是:" + res.ip + " " + res.addr + res.info;
+        var googleipinfo = "访问 Google 的 IP 地址是: " + res.ip + " " + res.addr + res.info;
         document.getElementById('googleipinfo').textContent = googleipinfo;
       })
       .catch(error => console.error(error));
@@ -198,6 +198,5 @@ async function handleRequest(request) {
         modifiedResponse.headers.set('Access-Control-Allow-Origin', headers_Origin);
         return modifiedResponse;
     }
-
 }
 
