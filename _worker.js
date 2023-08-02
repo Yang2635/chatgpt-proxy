@@ -106,7 +106,7 @@ const page = `
       <p>基于 CloudFlare Pages 部署的 ChatGPT API 代理服务。</p> 
       <p>ChatGPT API Proxy service deployed on CloudFlare Pages.</p> 
       <div id="app"> 
-        <p>将域名 https://api.openai.com 替换成 <strong><a @click="copyToClipboard('https://openai.api.isisy.com')">https://openai.api.isisy.com</a></strong> 即可体验。</p> 
+        <p>将域名 https://api.openai.com 替换成 <strong><a @click="copyToClipboard('https://chatgptproxyapi-cf.pages.dev')">https://chatgptproxyapi-cf.pages.dev</a></strong> 即可体验。</p> 
       </div> 
     </main> 
     <footer> 
